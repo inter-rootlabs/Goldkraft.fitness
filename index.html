@@ -76,6 +76,7 @@
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.7;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
@@ -151,7 +152,7 @@
         }
 
         /* Buttons */
-        .btn, button, a.btn {
+        .btn, a.btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -185,11 +186,29 @@
             background: transparent;
             color: var(--gold);
             border: 1px solid var(--gold);
+            padding: 14px 30px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: inline-block;
         }
 
         .btn-outline:hover {
             background: var(--accent);
             transform: translateY(-2px);
+        }
+
+        .btn-outline-white {
+            color: white;
+            border-color: white;
+        }
+
+        .btn-compact {
+            padding: 10px 18px;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
         }
 
         /* Navigation */
@@ -368,26 +387,20 @@
             display: inline-block;
         }
 
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-            padding: 14px 30px;
-            font-family: 'Barlow Condensed', sans-serif;
-            font-weight: 900;
-            font-size: 1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-decoration: none;
-            display: inline-block;
-        }
-
         .hero-stats {
             display: flex;
             gap: 40px;
             margin-top: 60px;
             padding-top: 40px;
             border-top: 1px solid var(--border);
+            width: 100%;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        .hero-stats .stat-item {
+            flex: 1;
+            text-align: center;
         }
 
         .stat-number {
@@ -427,21 +440,89 @@
 
         /* Services / Grid */
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
             position: relative;
             z-index: 2;
+            scrollbar-width: none;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 0;
+        }
+
+        .services-grid::-webkit-scrollbar {
+            display: none;
         }
 
         .service-card {
             background: var(--surface);
             border: 1px solid var(--border);
-            padding: 50px 40px;
+            padding: clamp(24px, 4vw, 40px);
             border-radius: 4px;
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            flex: 0 0 100%;
+            max-width: 320px;
+            width: 100%;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        .services-carousel {
+            display: grid;
+            grid-template-columns: min-content 1fr min-content;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .services-arrow {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            background: #0f0f0f;
+            color: var(--gold);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .services-arrow svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .services-arrow:disabled {
+            opacity: 0.4;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .services-progress {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .services-progress span {
+            flex: 1;
+            height: 4px;
+            background: rgba(212, 175, 55, 0.25);
+            border-radius: 999px;
+            transition: height 0.2s ease, opacity 0.2s ease;
+            opacity: 0.6;
+        }
+
+        .services-progress span.active {
+            height: 8px;
+            background: var(--gold);
+            opacity: 1;
         }
 
         .service-card::before {
@@ -524,9 +605,9 @@
         /* Pricing */
         .plans-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
-            align-items: center;
+            align-items: stretch;
             position: relative;
             z-index: 2;
         }
@@ -546,6 +627,7 @@
             padding: 70px 40px;
             transform: scale(1.05);
             position: relative;
+            overflow: hidden;
         }
 
         .price-badge {
@@ -566,6 +648,7 @@
             font-family: 'Bebas Neue', sans-serif;
             font-size: 1.8rem;
             margin-bottom: 10px;
+            color: var(--gold);
         }
 
         .price-amount {
@@ -619,6 +702,8 @@
             display: flex;
             white-space: nowrap;
             animation: marquee 14s linear infinite;
+            width: max-content;
+            will-change: transform;
         }
 
         .marquee-item {
@@ -713,6 +798,8 @@
             font-size: 0.9rem;
         }
 
+        .footer-nav a:hover { color: var(--gold); }
+
         /* WhatsApp Floating Button */
         .whatsapp-float {
             position: fixed !important;
@@ -762,7 +849,6 @@
             font-family: 'Barlow Condensed', sans-serif;
             font-weight: 700;
             font-size: 1.2rem;
-            color: #FFD700;
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
@@ -806,11 +892,11 @@
             .plans-grid { grid-template-columns: repeat(2, 1fr); }
             .price-card.featured { transform: none; }
             .contact-grid { grid-template-columns: 1fr; }
+            .map-container { min-height: 300px; }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 1024px) {
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
             .gallery-item img { height: 240px; }
         }
 
@@ -839,16 +925,26 @@
             .hero { padding: 100px 5% 60px 5%; }
             .hero-buttons { flex-direction: column; }
             .btn-primary, .btn-outline { width: 100%; text-align: center; }
-            .marquee-content { animation-duration: 11s; }
+            .marquee-section { padding: 18px 0; transform: rotate(-1.5deg) scale(1.02); }
+            .marquee-content { animation-duration: 18s; }
+            .marquee-item { font-size: 1.5rem; padding: 0 24px; gap: 24px; }
         }
 
         @media (max-width: 600px) {
-            .services-grid { grid-template-columns: 1fr; }
             .plans-grid { grid-template-columns: 1fr; }
             section { padding: 60px 5%; }
             .stats-bar { gap: 32px; padding: 50px 5%; }
             .stat-item { min-width: 100px; }
-            .marquee-content { animation-duration: 9s; }
+            .hero-stats {
+                flex-wrap: nowrap;
+                gap: 16px;
+                padding-top: 24px;
+                margin-top: 32px;
+            }
+            .hero-stats .stat-item { min-width: 80px; }
+            .marquee-section { padding: 14px 0; transform: rotate(-1.2deg) scale(1.01); }
+            .marquee-content { animation-duration: 22s; }
+            .marquee-item { font-size: 1.25rem; padding: 0 18px; gap: 18px; }
             .gallery-grid { grid-template-columns: 1fr; }
             .gallery-item img { height: 220px; }
         }
@@ -877,9 +973,10 @@
         </ul>
     </nav>
 
+    <main>
     <!-- Hero Section -->
-    <section id="facility" class="hero">
-        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2670&auto=format&fit=crop" alt="Gym Background" class="hero-video" />
+    <section id="facility" class="hero" aria-label="Hero — Elite Performance Center">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=75&fm=webp" alt="Gym Background" class="hero-video" fetchpriority="high" loading="eager" />
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <span class="hero-subtitle reveal">Elite Performance Center</span>
@@ -895,12 +992,12 @@
                     Start Your Elite Journey
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </a>
-                <a href="#training" class="btn btn-outline">
+                <a href="#training" class="btn btn-outline btn-outline-white">
                     Explore Programs
                 </a>
             </div>
 
-            <div class="hero-stats stats-bar stats-section reveal" style="transition-delay: 400ms;">
+            <div class="hero-stats stats-section reveal" style="transition-delay: 400ms;">
                 <div class="stat-item">
                     <h4 class="stat-number" data-target="10000" data-suffix="K+">0</h4>
                     <p class="stat-label">Sq Ft Facility</p>
@@ -925,14 +1022,14 @@
             <div class="marquee-item">Personal Training</div>
             <div class="marquee-item">Yoga & Mobility</div>
             <div class="marquee-item">Functional Fitness</div>
-            <div class="marquee-item">Strength & Conditioning</div>
-            <div class="marquee-item">CrossFit</div>
-            <div class="marquee-item">Personal Training</div>
+            <div class="marquee-item">Personal Coaching</div>
+            <div class="marquee-item">Fat Loss Conditioning</div>
+            <div class="marquee-item">Small Group Clusters</div>
         </div>
     </div>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="section">
+    <section id="gallery" class="section" aria-label="Gym Gallery">
         <div class="container">
             <div class="section-header text-center reveal">
                 <h2>Inside <span class="gold-text-gradient cinzel">Goldkraft</span></h2>
@@ -956,7 +1053,7 @@
     </section>
 
     <!-- Programs Section -->
-    <section id="training" class="section">
+    <section id="training" class="section" aria-label="Training Programs">
         <div class="glow-bg" style="top: 20%; right: -20%;"></div>
         <div class="container">
             <div class="section-header reveal">
@@ -964,7 +1061,11 @@
                 <p>Designed for athletes of all levels. Whether you are looking to build raw strength, improve endurance, or optimize your body composition.</p>
             </div>
 
-            <div class="services-grid">
+            <div class="services-carousel">
+                <button class="services-arrow services-arrow--left" type="button" aria-label="Previous program" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <div class="services-grid" id="servicesCarousel">
                 <!-- Service 1 -->
                 <div class="service-card card reveal">
                     <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
@@ -1001,12 +1102,24 @@
                     <h3>Small Group Clusters</h3>
                     <p>Focused training in micro-batches (3-5 max). High attention to detail with the motivation of a pack.</p>
                 </div>
+                </div>
+                <button class="services-arrow services-arrow--right" type="button" aria-label="Next program">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+            </div>
+            <div class="services-progress" aria-hidden="true">
+                <span class="active"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </section>
 
     <!-- Pricing Section -->
-    <section id="memberships" class="section">
+    <section id="memberships" class="section" aria-label="Membership Plans">
         <div class="glow-bg" style="top: 50%; left: -20%;"></div>
         <div class="container">
             <div class="section-header text-center reveal">
@@ -1059,7 +1172,7 @@
     </section>
 
     <!-- Contact & Location -->
-    <section id="contact" class="section contact-section">
+    <section id="contact" class="section contact-section" aria-label="Contact and Location">
         <div class="container contact-grid">
             <div class="contact-info reveal">
                 <h2 style="font-size: 2.5rem; margin-bottom: 40px;">THE <span class="gold-text-gradient cinzel">SANCTUARY</span></h2>
@@ -1094,13 +1207,13 @@
                     </div>
                 </div>
 
-                <a href="https://wa.me/918884108822" class="btn btn-gold" style="margin-top: 20px;">
-                    Initiate Contact via WhatsApp
+                <a href="https://wa.me/918884108822" class="btn btn-gold btn-compact" style="margin-top: 20px;">
+                    Initiate Contact
                 </a>
             </div>
 
             <div class="map-container reveal" style="transition-delay: 200ms;">
-                <iframe loading="lazy" allowfullscreen src="https://www.google.com/maps?q=Goldkraft+Fitness+Bengaluru&output=embed"></iframe>
+                <iframe loading="lazy" allowfullscreen title="Goldkraft Fitness location map" src="https://www.google.com/maps?q=Goldkraft+Fitness+Bengaluru&output=embed"></iframe>
             </div>
         </div>
     </section>
@@ -1122,9 +1235,12 @@
         </div>
     </footer>
 
+    </main>
+
         <a href="https://wa.me/918884108822" 
              class="whatsapp-float" 
              target="_blank" 
+             rel="noopener noreferrer"
              aria-label="Chat on WhatsApp">
             <svg xmlns="http://www.w3.org/2000/svg" 
                      viewBox="0 0 24 24" 
@@ -1196,8 +1312,82 @@
             });
         }
 
+        // Marquee seamless loop
+        const marqueeContent = document.querySelector('.marquee-content');
+        if (marqueeContent) {
+            const items = Array.from(marqueeContent.children);
+            items.forEach(item => {
+                const clone = item.cloneNode(true);
+                clone.setAttribute('aria-hidden', 'true');
+                marqueeContent.appendChild(clone);
+            });
+        }
+
+        // Services carousel controls
+        const servicesCarousel = document.getElementById('servicesCarousel');
+        const servicesPrev = document.querySelector('.services-arrow--left');
+        const servicesNext = document.querySelector('.services-arrow--right');
+        const servicesProgress = document.querySelector('.services-progress');
+        const serviceCards = servicesCarousel ? Array.from(servicesCarousel.querySelectorAll('.service-card')) : [];
+        const progressSegments = servicesProgress ? Array.from(servicesProgress.children) : [];
+        let activeServiceIndex = 0;
+        let servicesTicking = false;
+
+        const updateServicesUI = (index) => {
+            progressSegments.forEach((segment, i) => {
+                segment.classList.toggle('active', i === index);
+            });
+            if (servicesPrev) servicesPrev.disabled = index === 0;
+            if (servicesNext) servicesNext.disabled = index === serviceCards.length - 1;
+        };
+
+        const scrollToService = (index) => {
+            const target = serviceCards[index];
+            if (!servicesCarousel || !target) return;
+            servicesCarousel.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
+        };
+
+        const handleServicesScroll = () => {
+            if (servicesTicking) return;
+            servicesTicking = true;
+            window.requestAnimationFrame(() => {
+                const scrollLeft = servicesCarousel ? servicesCarousel.scrollLeft : 0;
+                let nearestIndex = 0;
+                let minDistance = Infinity;
+                serviceCards.forEach((card, i) => {
+                    const distance = Math.abs(card.offsetLeft - scrollLeft);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        nearestIndex = i;
+                    }
+                });
+                if (nearestIndex !== activeServiceIndex) {
+                    activeServiceIndex = nearestIndex;
+                    updateServicesUI(activeServiceIndex);
+                }
+                servicesTicking = false;
+            });
+        };
+
+        if (servicesCarousel && serviceCards.length) {
+            updateServicesUI(activeServiceIndex);
+            servicesCarousel.addEventListener('scroll', handleServicesScroll, { passive: true });
+            if (servicesPrev) {
+                servicesPrev.addEventListener('click', () => {
+                    if (activeServiceIndex > 0) scrollToService(activeServiceIndex - 1);
+                });
+            }
+            if (servicesNext) {
+                servicesNext.addEventListener('click', () => {
+                    if (activeServiceIndex < serviceCards.length - 1) scrollToService(activeServiceIndex + 1);
+                });
+            }
+            window.addEventListener('resize', () => scrollToService(activeServiceIndex));
+        }
+
         // Animated Counters
         function animateCounter(el, target, duration = 2000) {
+            let startTime = null;
             let start = 0;
             const isDecimal = target % 1 !== 0;
             const step = (timestamp) => {
@@ -1214,7 +1404,6 @@
                     el.textContent = text;
                 }
             };
-            let startTime = null;
             requestAnimationFrame(step);
         }
 
