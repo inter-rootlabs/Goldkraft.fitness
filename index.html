@@ -602,28 +602,30 @@
             font-size: 1rem;
         }
 
-        /* 3D VR Gallery Showcase (Hero Background Sized) */
-        .gallery-vr-hero {
+        /* UI/UX Optimized 3D VR Interactive Player Showcase */
+        .gallery-vr-player {
             position: relative;
             width: 100%;
-            min-height: 75vh;
+            aspect-ratio: 16 / 9;
+            max-height: 540px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
+            flex-direction: column;
+            justify-content: space-between;
+            border-radius: 16px;
             overflow: hidden;
-            margin-bottom: 40px;
+            margin-bottom: 48px;
             border: 1px solid rgba(212, 175, 55, 0.35);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.15);
+            background: #000;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(212, 175, 55, 0.15);
             text-decoration: none;
             cursor: pointer;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
-        .gallery-vr-hero:hover {
-            transform: translateY(-4px) scale(1.008);
+        .gallery-vr-player:hover {
+            transform: translateY(-4px) scale(1.006);
             border-color: var(--gold);
-            box-shadow: 0 30px 65px rgba(0, 0, 0, 0.9), 0 0 45px rgba(212, 175, 55, 0.35);
+            box-shadow: 0 32px 70px rgba(0, 0, 0, 0.9), 0 0 50px rgba(212, 175, 55, 0.35);
         }
 
         .gallery-vr-video {
@@ -637,58 +639,73 @@
             transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .gallery-vr-hero:hover .gallery-vr-video {
-            transform: scale(1.05);
+        .gallery-vr-player:hover .gallery-vr-video {
+            transform: scale(1.04);
         }
 
-        .gallery-vr-overlay {
+        .vr-player-overlay {
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at center, rgba(5, 5, 5, 0.35) 0%, rgba(5, 5, 5, 0.75) 60%, rgba(5, 5, 5, 0.95) 100%),
-                linear-gradient(to top, rgba(5, 5, 5, 0.9) 0%, transparent 60%);
+            background: linear-gradient(180deg, rgba(5, 5, 5, 0.75) 0%, transparent 22%, transparent 70%, rgba(5, 5, 5, 0.9) 100%);
             z-index: 1;
+            pointer-events: none;
             transition: background 0.4s ease;
         }
 
-        .gallery-vr-hero:hover .gallery-vr-overlay {
-            background: radial-gradient(circle at center, rgba(5, 5, 5, 0.2) 0%, rgba(5, 5, 5, 0.65) 60%, rgba(5, 5, 5, 0.9) 100%),
-                linear-gradient(to top, rgba(5, 5, 5, 0.85) 0%, transparent 60%);
+        .gallery-vr-player:hover .vr-player-overlay {
+            background: linear-gradient(180deg, rgba(5, 5, 5, 0.65) 0%, transparent 25%, transparent 68%, rgba(5, 5, 5, 0.82) 100%);
         }
 
-        .gallery-vr-content {
+        /* Top Glass Header */
+        .vr-top-bar {
             position: relative;
             z-index: 2;
-            text-align: center;
-            padding: 40px 24px;
-            max-width: 800px;
             display: flex;
-            flex-direction: column;
             align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            width: 100%;
         }
 
-        .vr-badge {
-            display: inline-flex;
+        .vr-live-tag {
+            display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(18, 18, 18, 0.85);
-            border: 1px solid var(--gold);
+            background: rgba(15, 15, 15, 0.75);
+            border: 1px solid rgba(212, 175, 55, 0.4);
             color: var(--gold);
-            padding: 10px 22px;
+            padding: 8px 16px;
             border-radius: 50px;
             font-family: 'Barlow Condensed', sans-serif;
             font-weight: 700;
-            font-size: 0.95rem;
-            letter-spacing: 2.5px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 24px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .vr-interact-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(15, 15, 15, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.85);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            backdrop-filter: blur(12px);
             transition: var(--transition);
         }
 
-        .gallery-vr-hero:hover .vr-badge {
+        .gallery-vr-player:hover .vr-interact-tag {
             background: rgba(212, 175, 55, 0.2);
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+            color: #ffffff;
+            border-color: var(--gold);
         }
 
         .vr-dot {
@@ -718,35 +735,50 @@
             }
         }
 
-        .gallery-vr-content h3 {
+        /* Bottom Glass Control Bar */
+        .vr-bottom-bar {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 30px;
+            width: 100%;
+            background: linear-gradient(180deg, transparent 0%, rgba(5, 5, 5, 0.95) 100%);
+            gap: 20px;
+        }
+
+        .vr-bottom-info h4 {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2.4rem, 5.5vw, 4.5rem);
-            letter-spacing: 3px;
+            font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+            letter-spacing: 2px;
             color: #ffffff;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
-            margin-bottom: 16px;
-            line-height: 1.05;
+            margin-bottom: 2px;
+            line-height: 1.1;
         }
 
-        .gallery-vr-content p {
+        .vr-bottom-info p {
             font-family: 'Inter', sans-serif;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: clamp(1rem, 1.6vw, 1.25rem);
-            margin-bottom: 28px;
-            max-width: 620px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: clamp(0.85rem, 1.2vw, 1rem);
+            margin: 0;
         }
 
-        .btn-vr-launch {
+        .btn-vr-launch-redesigned {
             pointer-events: none;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
-            transition: var(--transition);
+            white-space: nowrap;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+            flex-shrink: 0;
+            padding: 12px 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .gallery-vr-hero:hover .btn-vr-launch {
+        .gallery-vr-player:hover .btn-vr-launch-redesigned {
             background: #ffffff;
             color: #050505;
-            box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.6);
         }
 
         /* Gallery */
@@ -1233,20 +1265,32 @@
                 gap: 18px;
             }
 
-            .gallery-vr-hero {
-                min-height: 55vh;
-                margin-bottom: 30px;
-                border-radius: 8px;
+            .gallery-vr-player {
+                aspect-ratio: 4 / 3;
+                max-height: 420px;
+                margin-bottom: 28px;
+                border-radius: 10px;
             }
 
-            .gallery-vr-content {
-                padding: 24px 16px;
+            .vr-top-bar {
+                padding: 12px 14px;
             }
 
-            .vr-badge {
-                padding: 8px 16px;
-                font-size: 0.85rem;
-                letter-spacing: 1.8px;
+            .vr-interact-tag {
+                display: none;
+            }
+
+            .vr-bottom-bar {
+                padding: 16px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .btn-vr-launch-redesigned {
+                width: 100%;
+                justify-content: center;
+                padding: 10px 18px;
             }
 
             .gallery-grid {
@@ -1402,31 +1446,48 @@
                         environment.</p>
                 </div>
 
-                <!-- Hero-sized Autoplay 3D VR Video Showcase -->
+                <!-- UI/UX Optimized 3D VR Interactive Player Showcase -->
                 <a href="https://www.turiya.co/360/GoldkraftFitness/" target="_blank" rel="noopener noreferrer"
-                    class="gallery-vr-hero reveal" aria-label="Explore 360 Degree Virtual Tour of Goldkraft Fitness">
+                    class="gallery-vr-player reveal" aria-label="Launch 360 Degree Interactive Virtual Tour of Goldkraft Fitness">
                     <video class="gallery-vr-video" autoplay muted loop playsinline preload="auto">
                         <source src="assets/vids/gold kraft fitness 3d VR.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
                     </video>
-                    <div class="gallery-vr-overlay"></div>
-                    <div class="gallery-vr-content">
-                        <div class="vr-badge">
+
+                    <!-- Vignette Overlay -->
+                    <div class="vr-player-overlay"></div>
+
+                    <!-- Floating Top Glass Header -->
+                    <div class="vr-top-bar">
+                        <div class="vr-live-tag">
                             <span class="vr-dot"></span>
-                            3D VR 360° INTERACTIVE TOUR
+                            <span>3D VR 360° INTERACTIVE TOUR</span>
                         </div>
-                        <h3>EXPLORE GOLDKRAFT IN 3D VR</h3>
-                        <p>Click anywhere on the video to launch the full immersive 360° virtual walkthrough facility
-                            tour</p>
-                        <span class="btn btn-primary btn-vr-launch">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10" />
-                                <polygon points="10 8 16 12 10 16 10 8" />
+                        <div class="vr-interact-tag">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 3h6v6"/>
+                                <path d="M10 14 21 3"/>
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                             </svg>
-                            Launch 360° VR Tour
-                        </span>
+                            <span>Click to Open Virtual Tour</span>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Floating Bottom Control Bar -->
+                    <div class="vr-bottom-bar">
+                        <div class="vr-bottom-info">
+                            <h4>GOLDKRAFT 3D VIRTUAL WALKTHROUGH</h4>
+                            <p>Explore our 10,000 sq ft elite training facility in full 3D interactive VR</p>
+                        </div>
+                        <div class="btn btn-primary btn-vr-launch-redesigned">
+                            <span>LAUNCH 360° TOUR</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </div>
                     </div>
                 </a>
 
