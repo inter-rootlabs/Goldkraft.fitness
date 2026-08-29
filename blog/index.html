@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Goldkraft Fitness Blog | Training, CrossFit & Strength Guides</title>
+    <meta name="description"
+        content="Read expert fitness guides, CrossFit tips, and strength training advice from the coaches at Goldkraft Fitness in JP Nagar, Bengaluru. Level up your training." />
+    <meta name="keywords"
+        content="fitness blog Bangalore, CrossFit guide JP Nagar, strength training tips Bengaluru, personal training blog, Goldkraft Fitness articles" />
+    <meta name="author" content="Goldkraft Fitness" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://new.goldkraftfitness.com/blog/" />
+    <meta name="geo.region" content="IN-KA" />
+    <meta name="geo.placename" content="Bengaluru" />
+    <meta name="geo.position" content="12.9081;77.5857" />
+    <meta name="ICBM" content="12.9081, 77.5857" />
+    <meta property="og:title" content="Goldkraft Fitness Blog | Elite Training & Fitness Insights" />
+    <meta property="og:description"
+        content="Expert training guides, CrossFit fundamentals, and strength methodologies from Goldkraft Fitness in Bengaluru." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://new.goldkraftfitness.com/assets/images/logog.jpeg" />
+    <meta property="og:url" content="https://new.goldkraftfitness.com/blog/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Goldkraft Fitness Blog | Elite Training & Fitness Insights" />
+    <meta name="twitter:description"
+        content="Expert training guides, CrossFit fundamentals, and strength methodologies from Goldkraft Fitness in Bengaluru." />
+    <meta name="twitter:image" content="https://new.goldkraftfitness.com/assets/images/logog.jpeg" />
+    <meta name="theme-color" content="#050505" />
+    <link rel="icon" href="/assets/images/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96x96.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Goldkraft Fitness Blog",
+      "description": "Training, nutrition, CrossFit, and performance coaching articles from Goldkraft Fitness Bengaluru.",
+      "url": "https://new.goldkraftfitness.com/blog/",
+      "publisher": {
+        "@type": "HealthClub",
+        "name": "Goldkraft Fitness",
+        "url": "https://new.goldkraftfitness.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://new.goldkraftfitness.com/assets/images/logog.jpeg"
+        }
+      }
+    }
+    </script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box !important;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            overflow-x: hidden !important;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden !important;
+            width: 100% !important;
+            max-width: 100vw !important;
+            position: relative;
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+            line-height: 1.7;
+            font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100% !important;
+            height: auto !important;
+            display: block;
+        }
+
+        :root {
+            --bg: #050505;
+            --surface: #121212;
+            --surface-hover: #1a1a1a;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-dark: #aa8c2c;
+            --text: #ffffff;
+            --text-muted: #a0a0a0;
+            --accent: rgba(212, 175, 55, 0.15);
+            --border: rgba(255, 255, 255, 0.08);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        h1,
+        h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            line-height: 1.05;
+        }
+
+        h3,
+        h4,
+        nav a,
+        .stat-label,
+        .logo {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid #FFD700;
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        .container {
+            width: min(1200px, 92%);
+            margin: 0 auto;
+        }
+
+        .text-gold {
+            color: var(--gold);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .gold-text-gradient {
+            background: linear-gradient(to right, var(--gold-light), var(--gold), var(--gold-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .cinzel {
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        .glow-bg {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 60%);
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(30, 30, 30, 0.97);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+            backdrop-filter: blur(12px);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: 18px;
+        }
+
+        .nav-logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            border-radius: 100%;
+        }
+
+        .nav-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            white-space: nowrap;
+        }
+
+        .nav-title .brand-main {
+            color: #ffffff;
+        }
+
+        .nav-title .brand-accent {
+            color: #FFD700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #FFD700;
+        }
+
+        .nav-cta {
+            background: #FFD700;
+            color: #1a1a1a !important;
+            padding: 8px 18px;
+            border-radius: 4px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: #FFD700;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero / Header */
+        .blog-hero {
+            padding: 150px 0 60px;
+            position: relative;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .blog-hero-subtitle {
+            font-family: 'Barlow Condensed', sans-serif;
+            color: var(--gold);
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .blog-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 18px;
+        }
+
+        .blog-hero p {
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Blog Grid */
+        .blog-section {
+            padding: 70px 0 100px;
+            position: relative;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .blog-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .blog-card-img-wrap {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .blog-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .blog-card:hover .blog-card-img {
+            transform: scale(1.05);
+        }
+
+        .blog-card-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(5, 5, 5, 0.85);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            backdrop-filter: blur(8px);
+        }
+
+        .blog-card-body {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .blog-card-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .blog-card h2 {
+            font-size: 1.6rem;
+            line-height: 1.2;
+            margin-bottom: 14px;
+            color: #ffffff;
+            transition: color 0.2s;
+        }
+
+        .blog-card:hover h2 {
+            color: var(--gold);
+        }
+
+        .blog-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .blog-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .blog-card-link svg {
+            transition: transform 0.25s ease;
+        }
+
+        .blog-card:hover .blog-card-link svg {
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 50px 0 30px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: #080808;
+        }
+
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-nav a:hover {
+            color: var(--gold);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed !important;
+            bottom: 28px !important;
+            right: 28px !important;
+            z-index: 99999 !important;
+            background-color: #25D366 !important;
+            border-radius: 50% !important;
+            width: 60px !important;
+            height: 60px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5) !important;
+            transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) !important;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7) !important;
+        }
+
+        @media (max-width: 900px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 74px;
+                left: 0;
+                width: 100%;
+                background: rgba(20, 20, 20, 0.98);
+                flex-direction: column;
+                padding: 12px 0;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li {
+                width: 100%;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 14px 24px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                font-size: 1.1rem;
+            }
+
+            .nav-cta {
+                margin: 12px 24px;
+                border-radius: 4px;
+                text-align: center;
+            }
+
+            .blog-hero {
+                padding: 120px 0 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="/" style="display: flex; align-items: center; gap: 12px;">
+                <img src="/assets/images/logog.jpeg" alt="Goldkraft Fitness Logo" class="nav-logo">
+                <span class="nav-title">
+                    <span class="brand-main">GOLDKRAFT</span>
+                    <span class="brand-accent">FITNESS</span>
+                </span>
+            </a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#facility">FACILITY</a></li>
+            <li><a href="/#training">TRAINING</a></li>
+            <li><a href="/#memberships">MEMBERSHIPS</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/blog/" class="active">BLOG</a></li>
+            <li><a href="/#contact">CONTACT</a></li>
+            <li><a href="https://wa.me/918884108822" class="nav-cta">WHATSAPP US</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Blog Hero -->
+        <header class="blog-hero">
+            <div class="container">
+                <span class="blog-hero-subtitle">Goldkraft Athletic Journal</span>
+                <h1>TRAINING &amp; <span class="gold-text-gradient cinzel">PERFORMANCE</span> INSIGHTS</h1>
+                <p>Actionable guides on functional training, CrossFit biomechanics, and sustainable strength written by the coaching team at Goldkraft Fitness Bengaluru.</p>
+            </div>
+        </header>
+
+        <!-- Blog Grid Section -->
+        <section class="blog-section" aria-label="Blog Articles">
+            <div class="glow-bg" style="top: 20%; left: -10%;"></div>
+            <div class="container">
+                <div class="blog-grid">
+
+                    <!-- Post 1 -->
+                    <article class="blog-card">
+                        <div class="blog-card-img-wrap">
+                            <img src="/assets/images/gym3.jpg" alt="Free weights and squat rack area at Goldkraft Fitness Bengaluru" class="blog-card-img" loading="lazy" />
+                            <span class="blog-card-badge">Gym Guide</span>
+                        </div>
+                        <div class="blog-card-body">
+                            <div class="blog-card-meta">
+                                <span>📅 Aug 28, 2026</span>
+                                <span>⏱️ 5 min read</span>
+                            </div>
+                            <h2><a href="/blog/how-to-choose-the-right-gym-in-jp-nagar-bengaluru/">How to Choose the Right Gym in J.P. Nagar, Bengaluru</a></h2>
+                            <p>Key factors to evaluate when selecting a fitness facility in South Bangalore — from floor space and coaching credentials to peak-hour traffic.</p>
+                            <a href="/blog/how-to-choose-the-right-gym-in-jp-nagar-bengaluru/" class="blog-card-link">
+                                Read Full Guide
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Post 2 -->
+                    <article class="blog-card">
+                        <div class="blog-card-img-wrap">
+                            <img src="/assets/images/gym2.jpg" alt="Functional training and CrossFit turf zone at Goldkraft Fitness" class="blog-card-img" loading="lazy" />
+                            <span class="blog-card-badge">Training Science</span>
+                        </div>
+                        <div class="blog-card-body">
+                            <div class="blog-card-meta">
+                                <span>📅 Aug 25, 2026</span>
+                                <span>⏱️ 6 min read</span>
+                            </div>
+                            <h2><a href="/blog/functional-training-vs-traditional-weightlifting/">Functional Training vs Traditional Weightlifting: What's Actually Better for You?</a></h2>
+                            <p>A biomechanical breakdown comparing compound functional movements with isolation bodybuilding to help you optimize your weekly programming.</p>
+                            <a href="/blog/functional-training-vs-traditional-weightlifting/" class="blog-card-link">
+                                Read Full Guide
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Post 3 -->
+                    <article class="blog-card">
+                        <div class="blog-card-img-wrap">
+                            <img src="/assets/images/gym4.jpg" alt="Plate-loaded machines and strength training floor at Goldkraft" class="blog-card-img" loading="lazy" />
+                            <span class="blog-card-badge">CrossFit</span>
+                        </div>
+                        <div class="blog-card-body">
+                            <div class="blog-card-meta">
+                                <span>📅 Aug 20, 2026</span>
+                                <span>⏱️ 5 min read</span>
+                            </div>
+                            <h2><a href="/blog/beginners-guide-to-crossfit-first-month/">Beginner's Guide to CrossFit: What to Expect in Your First Month</a></h2>
+                            <p>Demystifying WOD structures, progressive movement scaling, recovery routines, and pacing strategies for newcomers stepping into functional CrossFit.</p>
+                            <a href="/blog/beginners-guide-to-crossfit-first-month/" class="blog-card-link">
+                                Read Full Guide
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Post 4 -->
+                    <article class="blog-card">
+                        <div class="blog-card-img-wrap">
+                            <img src="/assets/images/gym1.jpg" alt="Cardio zone and coaching area at Goldkraft Fitness Bengaluru" class="blog-card-img" loading="lazy" />
+                            <span class="blog-card-badge">Personal Coaching</span>
+                        </div>
+                        <div class="blog-card-body">
+                            <div class="blog-card-meta">
+                                <span>📅 Aug 15, 2026</span>
+                                <span>⏱️ 5 min read</span>
+                            </div>
+                            <h2><a href="/blog/5-signs-you-need-a-personal-trainer/">5 Signs You Need a Personal Trainer (Not Just a Gym Membership)</a></h2>
+                            <p>How structured 1-on-1 coaching breaks stubborn strength plateaus, fixes movement imbalances, and provides real accountability for your goals.</p>
+                            <a href="/blog/5-signs-you-need-a-personal-trainer/" class="blog-card-link">
+                                Read Full Guide
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-nav">
+                    <a href="/#facility">Facility</a>
+                    <a href="/#gallery">Gallery</a>
+                    <a href="/#training">Training</a>
+                    <a href="/#memberships">Memberships</a>
+                    <a href="/#faq">FAQ</a>
+                    <a href="/blog/">Blog</a>
+                    <a href="/#contact">Contact</a>
+                    <a href="https://wa.me/918884108822">WhatsApp</a>
+                </div>
+                <p style="margin-bottom: 6px;">ITI Layout, 1st Phase, J. P. Nagar, Bengaluru, Karnataka 560078</p>
+                <p><a href="tel:+918884108822" class="text-gold" style="font-weight: 600;">+91 8884108822</a></p>
+                <p style="margin-top: 14px;">&copy; 2026 Goldkraft Elite Fitness. Engineered for resilience.</p>
+            </div>
+        </footer>
+    </main>
+
+    <a href="https://wa.me/918884108822" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148
+                -.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15
+                -1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018
+                -.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099
+                -.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487
+                -.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297
+                -1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 
+                3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118
+                .571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074
+                -.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378
+                l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001
+                -5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 
+                0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 
+                11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 
+                5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 
+                11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('open');
+            });
+            document.querySelectorAll('#navLinks a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('open');
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

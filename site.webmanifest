@@ -1,0 +1,20 @@
+{
+  "name": "Goldkraft Fitness",
+  "short_name": "Goldkraft",
+  "icons": [
+    {
+      "src": "/assets/images/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#050505",
+  "background_color": "#050505",
+  "display": "standalone",
+  "start_url": "/"
+}
